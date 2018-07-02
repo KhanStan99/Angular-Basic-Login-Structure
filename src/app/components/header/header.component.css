@@ -1,0 +1,38 @@
+#custom-bootstrap-menu.navbar-default {
+background-repeat: repeat-x;
+border-bottom: 1px solid #000000;
+background-size: auto 100%;
+}
+
+.navbar-custom {
+  color: #FFFFFF;
+  background-color: #30afe5;
+  -webkit-text-fill-color: #000000
+}
+
+
+.navbar {
+  min-height: 76px !important;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  float: right;
+  /* background-color: #333333; */
+}
+
+li {
+  float: right;
+  padding: 10px;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}

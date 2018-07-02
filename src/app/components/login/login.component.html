@@ -1,0 +1,47 @@
+<div class="card">
+
+  <form #loginForm="ngForm" (ngSubmit)="loginUser(loginForm)">
+
+    <h2>Login</h2>
+
+
+
+    <input type="text" class="form-control" name="username" placeholder="Username" #userName="ngModel" ngModel minlength="3"
+      required/>
+
+
+    <div *ngIf="userName.errors?.minlength || userName.errors?.required && userName.touched">Username is required and must be 3 characters long</div>
+
+    <div>
+      <input type="password" class="form-control" #password="ngModel" name="password" placeholder="Password" ngModel minlength="6"
+        required/>
+    </div>
+
+    <div *ngIf="password.errors?.minlength || password.errors?.required && password.touched ">Password is required and must be 6 characters long</div>
+
+    <button type="submit" value="Login" [disabled]=loginForm.invalid>Login</button>
+
+    <br>
+    <br>
+    <div *ngIf="invalidLoginDetails && isApiHit">
+      <strong>Invalid login credentials</strong>
+    </div>
+
+    <div *ngIf="!invalidLoginDetails && isApiHit">
+      <strong>Successfully Logged In</strong>
+    </div>
+
+  </form>
+
+  <div>
+    <ul>
+      <li *ngFor="let user of list">
+        {{user.username}}
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- <app-header ></app-header> -->
+<router-outlet></router-outlet>

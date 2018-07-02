@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-sm navbar-custom">
+
+    <div class="col-lg-6">
+      <div style="float: left;">
+        <b style="font-size: 20px;">Dashboard</b>
+      </div>
+    </div>
+  
+    <div class="col-lg-6">
+  
+      <div style="float: right;">
+        <ul>
+          <li>
+            <a routerLink="">Abous Us</a>
+          </li>
+          <li>
+            <a *ngIf="!isUserLoggedIn" routerLink="login">Login</a>
+            <a *ngIf="isUserLoggedIn">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <router-outlet></router-outlet>
