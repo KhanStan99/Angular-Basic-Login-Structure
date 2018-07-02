@@ -17,12 +17,4 @@ export class LoginService {
     return this.httpClient.post(this.loginAPI, loginData).map((res: Response) => res);
   }
 
-  getStatus() {
-
-  }
-
-  setStatus() {
-
-  }
-
 }
