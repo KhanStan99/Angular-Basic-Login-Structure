@@ -13,7 +13,7 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private loginService: LoginService, private router: Router, private cookieService: CookieService) {}
+  constructor(private loginService: LoginService, private router: Router, private cookieService: CookieService) { }
 
   invalidLoginDetails: boolean = false;
   loginData: any = {};
@@ -32,14 +32,13 @@ export class LoginComponent implements OnInit {
         this.isApiHit = true;
         this.loginResponse = JSON.stringify(data);
         console.log(this.loginResponse);
-        if (this.loginResponse == "null") {
-          this.invalidLoginDetails = true; //failed          
-        } else {
-          this.invalidLoginDetails = false; //logged in          
-        }
-        // this.router.navigateByUrl('header');
-        var login = { "isLoggedIn": this.invalidLoginDetails };
-        this.cookieService.putObject('isLoggedIn', login);
+        this.invalidLoginDetails = false; //logged in
+        this.router.navigateByUrl('home');
+        this.cookieService.putObject('loginData', this.loginResponse);
+      }, error => {
+        this.invalidLoginDetails = true; //logged in
+        this.isApiHit = true;
+        console.log('error', error);
       }
     )
   }

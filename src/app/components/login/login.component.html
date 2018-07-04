@@ -6,7 +6,7 @@
 
 
 
-    <input type="text" class="form-control" name="username" placeholder="Username" #userName="ngModel" ngModel minlength="3"
+    <input type="text" class="form-control" name="email" placeholder="Username" #userName="ngModel" ngModel minlength="3"
       required/>
 
 
@@ -23,12 +23,8 @@
 
     <br>
     <br>
-    <div *ngIf="invalidLoginDetails && isApiHit">
+    <div *ngIf="invalidLoginDetails">
       <strong>Invalid login credentials</strong>
-    </div>
-
-    <div *ngIf="!invalidLoginDetails && isApiHit">
-      <strong>Successfully Logged In</strong>
     </div>
 
   </form>
