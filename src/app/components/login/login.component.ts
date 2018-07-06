@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import { Router } from '@angular/router';
-import { Login } from 'src/app/components/login/model';
 import { CookieService } from 'angular2-cookie/core';
 
 
@@ -18,7 +17,6 @@ export class LoginComponent implements OnInit {
   loginData: any = {};
   loginResponse: any;
   isApiHit: boolean = false;
-  list: Login[] = [];
 
   ngOnInit() {
 

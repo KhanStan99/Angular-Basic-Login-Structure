@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class LoginService {
 
   constructor(private httpClient: HttpClient) { }
-  loginAPI: string = "http://139.162.25.196:3000/api/ScoraUsers/login";
+  loginAPI: string = "YOUR_API";
 
   login(loginData) {
     return this.httpClient.post(this.loginAPI, loginData).map((res: Response) => res);

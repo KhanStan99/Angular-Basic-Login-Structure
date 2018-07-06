@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CookieService } from 'angular2-cookie/core';
 import { Router } from '@angular/router';
+import { ChangeDetectorRef } from '@angular/core';
 
 
 @Component({
@@ -12,11 +13,11 @@ export class HeaderComponent implements OnInit {
 
   loginData: any = {};
 
-  constructor(private cookieService: CookieService, private router: Router) { }
+  constructor(private cookieService: CookieService, private router: Router, private cdRef: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.loginData = this.cookieService.getObject('loginData');
-
+    this.ngAfterViewChecked();
   }
 
   ngOnChanges() {
@@ -26,6 +27,12 @@ export class HeaderComponent implements OnInit {
   logoutUser() {
     this.cookieService.removeAll();
     this.router.navigateByUrl('login');
+    this.ngOnInit();
   }
+
+  ngAfterViewChecked() {    
+    this.cdRef.detectChanges();
+  }
+
 
 }
