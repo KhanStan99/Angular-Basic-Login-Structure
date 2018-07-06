@@ -8,12 +8,14 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { CookieService } from 'angular2-cookie/core';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +29,9 @@ import { CookieService } from 'angular2-cookie/core';
       }, {
         path: 'login',
         component: LoginComponent,
+      }, {
+        path: 'home',
+        component: HomeComponent,
       }
 
     ])

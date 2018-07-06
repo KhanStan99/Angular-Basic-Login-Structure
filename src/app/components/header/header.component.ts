@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CookieService } from 'angular2-cookie/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
@@ -8,22 +10,22 @@ import { CookieService } from 'angular2-cookie/core';
 })
 export class HeaderComponent implements OnInit {
 
-  loginData: any;
-  isUserLoggedIn: boolean = false;
+  loginData: any = {};
 
-  constructor(private cookieService: CookieService) { }
+  constructor(private cookieService: CookieService, private router: Router) { }
 
   ngOnInit() {
-   this.loginData =  this.cookieService.getObject('isLoggedIn');
-   this.isUserLoggedIn =  this.loginData.isLoggedIn;
+    this.loginData = this.cookieService.getObject('loginData');
+
   }
 
   ngOnChanges() {
 
   }
 
-  changes(varr) {
-    this.isUserLoggedIn = varr;
+  logoutUser() {
+    this.cookieService.removeAll();
+    this.router.navigateByUrl('login');
   }
 
 }
