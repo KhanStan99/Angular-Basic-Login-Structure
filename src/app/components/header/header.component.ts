@@ -12,11 +12,18 @@ import { ChangeDetectorRef } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   loginData: any = {};
+  isUserLoggedIn: boolean = false;
 
   constructor(private cookieService: CookieService, private router: Router, private cdRef: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.loginData = this.cookieService.getObject('loginData');
+    
+    if (this.loginData)
+      this.isUserLoggedIn = true;
+    else
+      this.isUserLoggedIn = false;
+
     this.ngAfterViewChecked();
   }
 
@@ -30,7 +37,7 @@ export class HeaderComponent implements OnInit {
     this.ngOnInit();
   }
 
-  ngAfterViewChecked() {    
+  ngAfterViewChecked() {
     this.cdRef.detectChanges();
   }
 

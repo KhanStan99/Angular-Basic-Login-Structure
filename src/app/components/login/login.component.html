@@ -4,10 +4,7 @@
 
     <h2>Login</h2>
 
-
-
-    <input type="text" class="form-control" name="email" placeholder="Username" #userName="ngModel" ngModel minlength="3"
-      required/>
+    <input type="text" class="form-control" name="email" placeholder="Username" #userName="ngModel" ngModel minlength="3" required/>
 
 
     <div *ngIf="userName.errors?.minlength || userName.errors?.required && userName.touched">Username is required and must be 3 characters long</div>
@@ -29,15 +26,7 @@
 
   </form>
 
-  <div>
-    <ul>
-      <li *ngFor="let user of list">
-        {{user.username}}
-      </li>
-    </ul>
-  </div>
 
 </div>
 
-<!-- <app-header ></app-header> -->
 <router-outlet></router-outlet>

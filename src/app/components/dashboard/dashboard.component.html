@@ -1,0 +1,45 @@
+<div class="container">
+
+  <div class="mainClass">
+    <div class="mainClass">Curreny Exchange</div>
+
+    <div class="contentClass">
+
+      <select (change)="onSelect1($event.target.value)">
+        <option value="">Select First Currency</option>
+        <option *ngFor="let preType of currencyList" [value]="preType">
+          <span id={{preType}}>
+            {{ preType }}
+          </span>
+        </option>
+      </select>
+
+      <p>TO</p>
+
+      <select (change)="onSelect2($event.target.value)">
+        <option value="">Select Second Currency</option>
+        <option *ngFor="let preType of currencyList" [value]="preType">
+          <span id={{preType}}>
+            {{ preType }}
+          </span>
+        </option>
+      </select>
+
+
+      <div style="margin: 10px;">
+        <input type="number" placeholder="rate" #rate/>
+      </div>
+
+      <div>
+        <button (click)="checkRates(rate.value)">Check Rates</button>
+      </div>
+
+      <div *ngIf="answer">
+        <p>{{answer}}</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
