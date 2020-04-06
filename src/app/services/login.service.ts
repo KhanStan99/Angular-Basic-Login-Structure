@@ -1,8 +1,10 @@
+
+import {map} from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
+import { Observable } from 'rxjs';
+
+
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -16,15 +18,16 @@ export class LoginService {
 
 
   login(loginData) {
-    return this.httpClient.post(this.loginAPI, loginData).map((res: Response) => res);
+    console.log("Hello")
+    return this.httpClient.post(this.loginAPI, loginData).pipe(map((res: Response) => res));
   }
 
   getCurrencyList() {
-    return this.httpClient.get(this.currenctGetApi).map((res: Response) => res);
+    return this.httpClient.get(this.currenctGetApi).pipe(map((res: Response) => res));
   }
 
   getRatesFromCurrency(one, two, rate) {
-    return this.httpClient.get('https://currency-exchange.p.mashape.com/exchange?from=' + one + '&q=' + rate + '&to=' + two).map((res: Response) => res);
+    return this.httpClient.get('https://currency-exchange.p.mashape.com/exchange?from=' + one + '&q=' + rate + '&to=' + two).pipe(map((res: Response) => res));
   }
 
 }
